@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <h3>Buyer Registration</h3>
+    <form action="UserServlet" method="post">
+        <input type="hidden" name="action" value="registerBuyer" />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required /><br><br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required /><br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required /><br><br>
+        <button type="submit">Register as Buyer</button>
+    </form>
+    
+    <h3>Seller Registration</h3>
+    <form action="UserServlet" method="post">
+        <input type="hidden" name="action" value="registerSeller" />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required /><br><br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required /><br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required /><br><br>
+        <label for="shopId">Shop ID:</label>
+        <input type="text" id="shopId" name="shopId" required /><br><br>
+        <button type="submit">Register as Seller</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to RevShop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/wp2941035-wallpaper-hell.jpg'); /* Add your background image path here */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+        }
+
+        .container {
+            max-width: 800px; /* Increased width */
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.8); /* White background with transparency */
+            padding: 20px;
+            border-radius: 12px; /* Slightly rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        h3 {
+            color: #666;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .loginFields {
+            display: none;
+        }
+
+        .registrationFields {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to RevShop</h1>
+
+        <h2>Login</h2>
+        <label for="userType">Select User Type:</label>
+        <select id="userType" name="userType" onchange="showLoginFields()">
+            <option value="">--Select--</option>
+            <option value="buyer">Buyer</option>
+            <option value="seller">Seller</option>
+        </select>
+
+        <div id="buyerLogin" class="loginFields">
+            <form action="UserServlet" method="post">
+                <input type="hidden" name="action" value="login">
+                <input type="hidden" name="userType" value="buyer">
+                <label for="buyerEmail">Email:</label>
+                <input type="email" id="buyerEmail" name="email" required>
+                
+                <label for="buyerPassword">Password:</label>
+                <input type="password" id="buyerPassword" name="password" required>
+
+                <button type="submit">Login as Buyer</button>
+            </form>
+        </div>
+
+        <div id="sellerLogin" class="loginFields">
+            <form action="UserServlet" method="post">
+                <input type="hidden" name="action" value="login">
+                <input type="hidden" name="userType" value="seller">
+                <label for="sellerEmail">Email:</label>
+                <input type="email" id="sellerEmail" name="email" required>
+                
+                <label for="sellerPassword">Password:</label>
+                <input type="password" id="sellerPassword" name="password" required>
+                
+                <button type="submit">Login as Seller</button>
+            </form>
+        </div>
+        
+        <h2>Register</h2>
+        <label for="userTypeReg">Select User Type:</label>
+        <select id="userTypeReg" name="userTypeReg" onchange="showRegistrationFields()">
+            <option value="">--Select--</option>
+            <option value="buyer">Buyer</option>
+            <option value="seller">Seller</option>
+        </select>
+
+        <div id="buyerFields" class="registrationFields">
+            <h3>Buyer Registration</h3>
+            <form action="UserServlet" method="post">
+                <input type="hidden" name="action" value="registerBuyer">
+                <label for="buyerRegEmail">Email:</label>
+                <input type="email" id="buyerRegEmail" name="email" required>
+
+                <label for="buyerRegPassword">Password:</label>
+                <input type="password" id="buyerRegPassword" name="password" required>
+
+                <label for="buyerPhoneNumber">Phone Number:</label>
+                <input type="text" id="buyerPhoneNumber" name="phoneNumber" required>
+
+                <label for="buyerAddress">Address:</label>
+                <input type="text" id="buyerAddress" name="address" required>
+
+                <button type="submit">Register Buyer</button>
+            </form>
+        </div>
+
+        <div id="sellerFields" class="registrationFields">
+            <h3>Seller Registration</h3>
+            <form action="UserServlet" method="post">
+                <input type="hidden" name="action" value="registerSeller">
+                <label for="sellerRegEmail">Email:</label>
+                <input type="email" id="sellerRegEmail" name="email" required>
+
+                <label for="sellerRegPassword">Password:</label>
+                <input type="password" id="sellerRegPassword" name="password" required>
+
+                <label for="sellerPhoneNumber">Phone Number:</label>
+                <input type="text" id="sellerPhoneNumber" name="phoneNumber" required>
+
+                <label for="sellerAddress">Address:</label>
+                <input type="text" id="sellerAddress" name="address" required>
+
+                <label for="shopId">Shop ID (Alphanumeric):</label>
+                <input type="text" id="shopId" name="shopId" required>
+
+                <button type="submit">Register Seller</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showLoginFields() {
+            const userType = document.getElementById('userType').value;
+            document.getElementById('buyerLogin').style.display = userType === 'buyer' ? 'block' : 'none';
+            document.getElementById('sellerLogin').style.display = userType === 'seller' ? 'block' : 'none';
+            document.getElementById('buyerFields').style.display = 'none'; // Hide registration fields
+            document.getElementById('sellerFields').style.display = 'none'; // Hide registration fields
+        }
+
+        function showRegistrationFields() {
+            const userType = document.getElementById('userTypeReg').value;
+            document.getElementById('buyerFields').style.display = userType === 'buyer' ? 'block' : 'none';
+            document.getElementById('sellerFields').style.display = userType === 'seller' ? 'block' : 'none';
+            document.getElementById('buyerLogin').style.display = 'none'; // Hide login fields
+            document.getElementById('sellerLogin').style.display = 'none'; // Hide login fields
+        }
+    </script>
+</body>
+</html>

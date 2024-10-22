@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <welcome-file-list>
+    <welcome-file>registration.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>UpdateCartServlet</display-name>
+    <servlet-name>UpdateCartServlet</servlet-name>
+    <servlet-class>com.revshop.servlet.UpdateCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCartServlet</servlet-name>
+    <url-pattern>/UpdateCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveFromCartServlet</display-name>
+    <servlet-name>RemoveFromCartServlet</servlet-name>
+    <servlet-class>com.revshop.servlet.RemoveFromCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveFromCartServlet</servlet-name>
+    <url-pattern>/RemoveFromCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddToCartServlet</display-name>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>com.revshop.servlet.AddToCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/AddToCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>checkoutServlet</display-name>
+    <servlet-name>checkoutServlet</servlet-name>
+    <servlet-class>com.revshop.servlet.checkoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>checkoutServlet</servlet-name>
+    <url-pattern>/checkoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MyOrdersServlet</display-name>
+    <servlet-name>MyOrdersServlet</servlet-name>
+    <servlet-class>com.revshop.servlet.MyOrdersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyOrdersServlet</servlet-name>
+    <url-pattern>/MyOrdersServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.revshop.servlet.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>30</session-timeout> <!-- Timeout in minutes -->
+</session-config>
+  
+  
+</web-app>

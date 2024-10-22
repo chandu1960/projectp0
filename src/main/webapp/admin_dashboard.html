@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <h2>Pending Seller Approvals</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- This section will be populated with seller data -->
+            <!-- Example of a seller row (This should be populated dynamically) -->
+            <!-- You need to implement a mechanism to fetch sellers from the database -->
+            <%-- Assuming you are using JSP for dynamic content --%>
+            <c:forEach var="seller" items="${pendingSellers}">
+                <tr>
+                    <td>${seller.email}</td>
+                    <td>${seller.phoneNumber}</td>
+                    <td>${seller.address}</td>
+                    <td>
+                        <form action="UserServlet" method="post">
+                            <input type="hidden" name="action" value="approveSeller">
+                            <input type="hidden" name="email" value="${seller.email}">
+                            <button type="submit">Approve</button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+            <%-- End of dynamic content --%>
+        </tbody>
+    </table>
+
+    <a href="index.html">Logout</a> <!-- Link to logout or navigate to another page -->
+</body>
+</html>

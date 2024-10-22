@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        .product-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+        }
+        #product-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Products</h1>
+    <div id="product-list">
+        <c:forEach items="${products}" var="product">
+            <div class="product-box">
+                <img src="${product.productImage}" alt="${product.productName}" style="width:100%">
+                <h2>${product.productName}</h2>
+                <p>Price: $${product.productPrice}</p>
+                <p>${product.productDescription}</p>
+            </div>
+        </c:forEach>
+    </div>
+</body>
+</html>

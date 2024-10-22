@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Seller Email</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Light background color */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%; /* Responsive width */
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333; /* Darker text color */
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left; /* Align labels to the left */
+            color: #555; /* Lighter text color for labels */
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: calc(100% - 20px); /* Full width with padding */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        input[type="submit"] {
+            padding: 10px 15px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%; /* Full width */
+        }
+        input[type="submit"]:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        .gif-container {
+            margin-bottom: 20px; /* Space below GIF */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gif-container">
+            <img src="images/digi-digilah.gif" alt="Loading GIF" style="width: 100%; max-width: 300px; border-radius: 8px;">
+        </div>
+        <h1>Approve Seller Email</h1>
+        <form action="ApproveEmailServlet" method="post">
+            <label for="shopId">Shop ID:</label>
+            <input type="text" id="shopId" name="shopId" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <input type="submit" value="Approve">
+        </form>
+    </div>
+</body>
+</html>
